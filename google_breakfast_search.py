@@ -16,10 +16,12 @@ def search_google_for_breakfast():
     
     # Setup Chrome options
     chrome_options = Options()
-    # Uncomment the next line to run headless (no visible browser window)
-    # chrome_options.add_argument('--headless')
+    # Run headless (no visible browser window) - required for servers without display
+    chrome_options.add_argument('--headless=new')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--window-size=1920,1080')
     
     # Initialize the Chrome driver
     driver = webdriver.Chrome(options=chrome_options)
